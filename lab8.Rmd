@@ -88,6 +88,23 @@ star_summary %>%
 
 This table displays the means and standard deviations of both math and reading scores, group by sex and frl.
 
+```{r}
+star %>% 
+  ggplot(aes(x = totexp, y = tmathss)) + 
+  geom_point(color = 'gray70') + 
+  geom_smooth(aes(group = frl, color = frl), method = 'lm') + 
+  labs(x = 'Teacher Experience (years)', 
+       y = 'Total Math Scale Score', 
+       title = 'Relation between teacher experience and math scores',
+       subtitle = 'Separate regression lines displayed by free/reduced price lunch status', 
+       color = 'Lunch status'
+       ) +
+  theme_minimal() + 
+  scale_color_discrete(labels = c('Paid Meals','Free/Reduced Price Meals'))+
+  theme(legend.position = 'bottom')
+```
+
+Above is a figure that shows two regression lines for the relationship between teacher experience and total math scale score. The above line represents those who do not qualify for free/reduced price lunch, whereas the bottom represents those who do qualify.
 
 # Methods
 We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study. <!-- 21-word solution (Simmons, Nelson & Simonsohn, 2012; retrieved from http://ssrn.com/abstract=2160588) -->
