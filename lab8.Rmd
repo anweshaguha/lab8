@@ -65,6 +65,11 @@ output            : papaja::apa6_pdf
 
 ```{r setup, include = FALSE}
 library("papaja")
+library(tidyverse)
+library(janitor)
+library(rio)
+library(knitr)
+library(here)
 r_refs("r-references.bib")
 ```
 
@@ -74,6 +79,18 @@ set.seed(42)
 knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
 ```
 
+```{r global options, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE,
+                      fig.height = 8,
+                      fig.width = 6.5,
+                      warning = FALSE,
+                      error = FALSE,
+                      message = FALSE)
+```
+
+```{r data}
+star <- import(here("data", "star.csv"))
+```
 
 
 # Methods
