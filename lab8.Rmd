@@ -73,7 +73,20 @@ knitr::opts_chunk$set(echo = FALSE,
 
 ```{r data}
 star <- import(here("data", "star.csv"))
+
+star_summary<-star %>%
+  group_by(sex, frl) %>% 
+  summarize(math_mean = mean(tmathss),
+            math_sd = sd(tmathss),
+            rdg_mean = mean(treadss),
+            rdg_sd = sd(treadss))
+
+star_summary %>% 
+  kable(digits = 2)
+
 ```
+
+This table displays the means and standard deviations of both math and reading scores, group by sex and frl.
 
 
 # Methods
