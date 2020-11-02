@@ -100,6 +100,20 @@
 % \setlength{\parindent}{0.5in}
 % \setlength{\parskip}{0pt plus 0pt minus 0pt}
 
+% Overwrite redefinition of paragraph and subparagraph by the default LaTeX template
+% See https://github.com/crsh/papaja/issues/292
+\makeatletter
+\renewcommand{\paragraph}{\@startsection{paragraph}{4}{\parindent}%
+  {0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries\itshape\typesectitle}}
+
+\renewcommand{\subparagraph}[1]{\@startsection{subparagraph}{5}{1em}%
+  {0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+  {-\z@\relax}%
+  {\normalfont\normalsize\itshape\hspace{\parindent}{#1}\textit{\addperi}}{\relax}}
+\makeatother
+
 % \usepackage{etoolbox}
 \makeatletter
 \patchcmd{\HyOrg@maketitle}
@@ -112,7 +126,7 @@
   {}{\typeout{Failed to patch title.}}
 \makeatother
 \shorttitle{Lab 8}
-\keywords{papaja, lab\newline\indent Word count: }
+\keywords{papaja, lab}
 \DeclareDelayedFloatFlavor{ThreePartTable}{table}
 \DeclareDelayedFloatFlavor{lltable}{table}
 \DeclareDelayedFloatFlavor*{longtable}{table}
@@ -164,10 +178,14 @@ We report how we determined our sample size, all data exclusions (if any), all m
 \hypertarget{procedure}{%
 \subsection{Procedure}\label{procedure}}
 
+Iwashita and Sohlberg (2019) reported results of a study investigating validity, reliability and clinical feasibility of pragmatic rating scales for assessing social communication after brain injury.
+
+This paper reports on a secondary analysis of data from recovery high schools (Tanner-Smith, Nichols, Loan, Finch, \& Moberg, 2020).
+
 \hypertarget{data-analysis}{%
 \subsection{Data analysis}\label{data-analysis}}
 
-We used R (Version 4.0.2; R Core Team, 2020) and the R-packages \emph{dplyr} (Version 1.0.2; Wickham et al., 2020), \emph{forcats} (Version 0.5.0; Wickham, 2020a), \emph{ggplot2} (Version 3.3.2; Wickham, 2016), \emph{here} (Version 0.1; Müller, 2017), \emph{janitor} (Version 2.0.1; Firke, 2020), \emph{knitr} (Version 1.30; Xie, 2015), \emph{papaja} (Version 0.1.0.9997; Aust \& Barth, 2020), \emph{purrr} (Version 0.3.4; Henry \& Wickham, 2020), \emph{readr} (Version 1.3.1; Wickham, Hester, \& Francois, 2018), \emph{rio} (Version 0.5.16; Chan, Chan, Leeper, \& Becker, 2018), \emph{stringr} (Version 1.4.0; Wickham, 2019), \emph{tibble} (Version 3.0.4; Müller \& Wickham, 2020), \emph{tidyr} (Version 1.1.2; Wickham, 2020b), and \emph{tidyverse} (Version 1.3.0; Wickham, Averick, et al., 2019) for all our analyses.
+We used R (Version 4.0.2; R Core Team, 2020) and the R-packages \emph{dplyr} (Version 1.0.2; Wickham et al., 2020), \emph{forcats} (Version 0.5.0; Wickham, 2020a), \emph{ggplot2} (Version 3.3.2; Wickham, 2016), \emph{here} (Version 0.1; Müller, 2017), \emph{janitor} (Version 2.0.1; Firke, 2020), \emph{knitr} (Version 1.30; Xie, 2015), \emph{papaja} (Version 0.1.0.9997; Aust \& Barth, 2020), \emph{purrr} (Version 0.3.4; Henry \& Wickham, 2020), \emph{readr} (Version 1.4.0; Wickham, Hester, \& Francois, 2018), \emph{rio} (Version 0.5.16; Chan, Chan, Leeper, \& Becker, 2018), \emph{stringr} (Version 1.4.0; Wickham, 2019), \emph{tibble} (Version 3.0.4; Müller \& Wickham, 2020), \emph{tidyr} (Version 1.1.2; Wickham, 2020b), and \emph{tidyverse} (Version 1.3.0; Wickham, Averick, et al., 2019) for all our analyses.
 
 \hypertarget{results}{%
 \section{Results}\label{results}}
@@ -197,6 +215,9 @@ Firke, S. (2020). \emph{Janitor: Simple tools for examining and cleaning dirty d
 \leavevmode\hypertarget{ref-R-purrr}{}%
 Henry, L., \& Wickham, H. (2020). \emph{Purrr: Functional programming tools}. Retrieved from \url{https://CRAN.R-project.org/package=purrr}
 
+\leavevmode\hypertarget{ref-iwashita2019}{}%
+Iwashita, H., \& Sohlberg, M. M. (2019). Measuring conversations after acquired brain injury in 30 minutes or less: A comparison of two pragmatic rating scales. \emph{Brain Injury}, \emph{33}(9), 1219--1233.
+
 \leavevmode\hypertarget{ref-R-here}{}%
 Müller, K. (2017). \emph{Here: A simpler way to find your files}. Retrieved from \url{https://CRAN.R-project.org/package=here}
 
@@ -205,6 +226,9 @@ Müller, K., \& Wickham, H. (2020). \emph{Tibble: Simple data frames}. Retrieved
 
 \leavevmode\hypertarget{ref-R-base}{}%
 R Core Team. (2020). \emph{R: A language and environment for statistical computing}. Vienna, Austria: R Foundation for Statistical Computing. Retrieved from \url{https://www.R-project.org/}
+
+\leavevmode\hypertarget{ref-tanner2020}{}%
+Tanner-Smith, E. E., Nichols, L. M., Loan, C. M., Finch, A. J., \& Moberg, D. P. (2020). Recovery high school attendance effects on student delinquency and substance use: The moderating role of social problem solving styles. \emph{Prevention Science}, 1--10.
 
 \leavevmode\hypertarget{ref-R-ggplot2}{}%
 Wickham, H. (2016). \emph{Ggplot2: Elegant graphics for data analysis}. Springer-Verlag New York. Retrieved from \url{https://ggplot2.tidyverse.org}

@@ -85,6 +85,10 @@ We report how we determined our sample size, all data exclusions (if any), all m
 
 ## Procedure
 
+@iwashita2019 reported results of a study investigating validity, reliability and clinical feasibility of pragmatic rating scales for assessing social communication after brain injury. 
+
+This paper reports on a secondary analysis of data from recovery high schools [@tanner2020].
+
 ## Data analysis
 We used `r cite_r("r-references.bib")` for all our analyses.
 
